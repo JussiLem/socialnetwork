@@ -1,19 +1,19 @@
 
 plugins {
     id 'java'
+    id 'application'
     id 'idea'
     id "org.springframework.boot" version '2.0.4.RELEASE'
+
 }
 
 group 'me.jussilemmetyinen'
 version '1.0-SNAPSHOT'
 
+mainClassName = 'me.jussilemmetyinen.socialnetwork.Application'
+
 apply plugin: 'io.spring.dependency-management'
 
-bootJar {
-    baseName = 'socialnetwork'
-    version '1.0-SNAPSHOPT'
-}
 sourceCompatibility = 1.10
 
 repositories {
