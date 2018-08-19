@@ -1,18 +1,21 @@
-
-plugins {
-    id 'java'
-    id 'application'
-    id 'idea'
-    id "org.springframework.boot" version '2.0.4.RELEASE'
-
+buildscript {
+    ext {
+        springBootVersion = '2.0.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
-
 group 'me.jussilemmetyinen'
-version '1.0-SNAPSHOT'
-
-mainClassName = 'me.jussilemmetyinen.socialnetwork.Application'
+version '0.0.1-SNAPSHOT'
 
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.10
 
@@ -20,8 +23,15 @@ repositories {
     mavenCentral()
     jcenter()
 }
+ext {
+    springVersion = '2.0.4.RELEASE'
+    junitVersion  = '5.2.0'
+}
 
 dependencies {
-    implementation ("org.springframework.boot:spring-boot-starter-web")
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    implementation ("org.springframework.boot:spring-boot-starter-web:${springVersion}")
+    runtime('com.h2database:h2')
+    testImplementation("org.springframework.boot:spring-boot-starter-test:${springVersion}")
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+
 }
