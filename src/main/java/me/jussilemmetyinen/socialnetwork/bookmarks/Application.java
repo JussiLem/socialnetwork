@@ -2,6 +2,10 @@ package me.jussilemmetyinen.socialnetwork.bookmarks;
 
 import java.util.Arrays;
 
+import me.jussilemmetyinen.socialnetwork.bookmarks.domain.Account;
+import me.jussilemmetyinen.socialnetwork.bookmarks.domain.Bookmark;
+import me.jussilemmetyinen.socialnetwork.bookmarks.repository.AccountRepository;
+import me.jussilemmetyinen.socialnetwork.bookmarks.repository.BookmarkRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,8 +25,10 @@ public class Application {
                 Arrays.asList("jhoeller","dsyer","pwebb","ogierke","rwinch","mfisher","mpollack","jlong")
                         .forEach(username -> {
                             Account account = accountRepository.save(new Account(username, "password"));
-                            bookmarkRepository.save(new Bookmark(account, "http://bookmark.com/1/" + username, "A description"));
-                            bookmarkRepository.save(new Bookmark(account, "http://bookmark.com/2/" + username, "A description"));
+                            bookmarkRepository.save(new Bookmark(account, "http://bookmark.com/1/" +
+                                    username, "A description"));
+                            bookmarkRepository.save(new Bookmark(account, "http://bookmark.com/2/" +
+                                    username, "A description"));
                         });
     }
 
