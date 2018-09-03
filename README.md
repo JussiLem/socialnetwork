@@ -6,3 +6,5 @@ videos and pictures. Lets see where I end up!
 ## So far
 - Builds with Gradle
 - Spring Framework
+- Logging wit Google Flogger
+- JUnit
