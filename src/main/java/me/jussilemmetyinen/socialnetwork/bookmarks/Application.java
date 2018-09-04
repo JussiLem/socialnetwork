@@ -25,9 +25,9 @@ public class Application {
                 Arrays.asList("jhoeller","dsyer","pwebb","ogierke","rwinch","mfisher","mpollack","jlong")
                         .forEach(username -> {
                             Account account = accountRepository.save(new Account(username, "password"));
-                            bookmarkRepository.save(new Bookmark(account, "http://bookmark.com/1/" +
+                            bookmarkRepository.save(new Bookmark(account, "http://localhost:8080/1/" +
                                     username, "A description"));
-                            bookmarkRepository.save(new Bookmark(account, "http://bookmark.com/2/" +
+                            bookmarkRepository.save(new Bookmark(account, "http://localhost:8080/2/" +
                                     username, "A description"));
                         });
     }
